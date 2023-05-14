@@ -1,0 +1,7 @@
+// when copying to register page fot n error 
+// cause of error was isDependeny= false 
+// not having unique keys
+
+// using getMaterial app in loginScreen 
+// can't use get material app inside builder
+// getting error child=_child
