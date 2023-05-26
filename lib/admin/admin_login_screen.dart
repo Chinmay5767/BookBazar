@@ -1,40 +1,41 @@
 import 'dart:convert';
-import 'package:book_store/admin/admin_login_screen.dart';
+import 'package:book_store/admin/admin_upload_items.dart';
 import 'package:book_store/user/fragements/dashboard_of_fragements.dart';
+import 'package:book_store/user/login_screen.dart';
 import 'package:book_store/user/userPreferences/user_preferences.dart';
 import 'package:book_store/user/sign_up.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:http/http.dart' as http;
 import 'package:get/get_state_manager/get_state_manager.dart';
 
 import '../api_connection/api_connection.dart';
-import 'model/user.dart';
+import '../user/model/user.dart';
 
-class Login extends StatefulWidget {
+
+class AdminLogin extends StatefulWidget {
   // const Login({Key? key}) : super(key: key);
 
   @override
-  State<Login> createState() => _LoginState();
+  State<AdminLogin> createState() => _AdminLoginState();
 }
 
-class _LoginState extends State<Login> {
+class _AdminLoginState extends State<AdminLogin> {
   var formKey = GlobalKey<FormState>();
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
   var isObsecure = true.obs;
 
-  loginUserNow() async {
+  loginAdminNow() async {
     try {
       var res = await http.post(
-        Uri.parse(API.login),
+        Uri.parse(API.adminLogin),
         // connecting with backend validate_email.php
         // post means sending data
         body: {
-          'user_email': emailController.text.trim(),
-          'user_password': passwordController.text.trim(),
+          'admin_email': emailController.text.trim(),
+          'admin_password': passwordController.text.trim(),
         },
       );
       if (res.statusCode ==
@@ -43,15 +44,14 @@ class _LoginState extends State<Login> {
         var resBodyOflogin = jsonDecode(res.body);
         if (resBodyOflogin['success'] == true) {
           Fluttertoast.showToast(
-            msg: "Congratulations, you are logged in Successfully.",
+            msg: "Dear Admin congratulations, you are logged in Successfully.",
           );
           // to recieve user data
           // see user.dart
           // it saves user information
-          User userInfo = User.fromJson(resBodyOflogin['userData']);
-          await RememberUserPrefs.StoreUserInfo(userInfo);
+         
           Future.delayed(Duration(milliseconds: 2000), () {
-            Get.to(DashboardOfFragements);
+            Get.to(AdminUploadItemsScreen());
           });
         } else {
           Fluttertoast.showToast(msg: "Please type correct password or email");
@@ -80,7 +80,7 @@ class _LoginState extends State<Login> {
                     width: MediaQuery.of(context).size.width,
                     height: 285,
                     child: Image.asset(
-                      "lib/assets/book_books_bookshelf.jpg",
+                      "lib/assets/admin.jpeg",
                     ),
                   ),
 
@@ -237,7 +237,7 @@ class _LoginState extends State<Login> {
                                     child: InkWell(
                                       onTap: () {
                                         if (formKey.currentState!.validate()) {
-                                          loginUserNow();
+                                          loginAdminNow();
                                         }
                                       },
                                       borderRadius: BorderRadius.circular(30),
@@ -268,13 +268,13 @@ class _LoginState extends State<Login> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                const Text("Don't have an Account?"),
+                                const Text("you are not an admin?"),
                                 TextButton(
                                   onPressed: () {
-                                    Get.to(SignUpScreen());
+                                    Get.to(Login());
                                   },
                                   child: const Text(
-                                    "SignUp Here",
+                                    "click Here",
                                     style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 16,
@@ -284,33 +284,10 @@ class _LoginState extends State<Login> {
                               ],
                             ),
 
-                            const Text(
-                              "Or",
-                              style: TextStyle(
-                                color: Colors.grey,
-                                fontSize: 16,
-                              ),
-                            ),
+                           
 
                             //are you an admin - button
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                const Text("Are you an Admin?"),
-                                TextButton(
-                                  onPressed: () {
-                                    Get.to(AdminLogin());
-                                  },
-                                  child: const Text(
-                                    "Click Here",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
+                       
                           ],
                         ),
                       ),

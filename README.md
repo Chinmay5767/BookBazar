@@ -8,6 +8,9 @@ This project is a starting point for a Flutter application.
 
 A few resources to get you started if this is your first Flutter project:
 
+error->
+https://stackoverflow.com/questions/73700307/flutter-android-build-gradle-unable-to-resolve-class-gradleexception
+
 - [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 

@@ -1,5 +1,7 @@
+import 'package:book_store/user/fragements/dashboard_of_fragements.dart';
 import 'package:book_store/user/login_screen.dart';
 import 'package:book_store/user/sign_up.dart';
+import 'package:book_store/user/userPreferences/user_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 
@@ -17,11 +19,16 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'book store app',
       theme: ThemeData(
-        primarySwatch:  Colors.blue,
+        primarySwatch: Colors.blue,
       ),
       home: FutureBuilder(
-        builder: (context, dataSnapShot){
-          return Login();
+        future: RememberUserPrefs.readUserInfo(),
+        builder: (context, dataSnapShot) {
+          if (dataSnapShot.data == null) {
+            return Login();
+          } else {
+            return DashboardOfFragements();
+          }
         },
       ),
     );
