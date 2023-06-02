@@ -5,6 +5,8 @@ class API {
   //
    static const hostConnectionUser = "$hostConnection/user";
    static const hostConnectionAdmin = "$hostConnection/admin";
+   static const hostUploadItem = "$hostConnection/items";
+   static const hostBooks = "$hostConnection/books";
 
    // sign up
    static const validateEmail = "http://192.168.93.75/api_book_store/user/validate_email.php";
@@ -13,5 +15,14 @@ class API {
 
    //admin
    static const adminLogin = "$hostConnection/admin/login.php";
+
+   // save item
+   static const uploadNewItem = "$hostConnection/items/upload.php";
+
+   //trending clothes
+   static const TrendingBooks= "$hostConnection/books/trending.php";
+   static const GetAllBooks= "$hostConnection/books/all.php";
+
+  
 
 }

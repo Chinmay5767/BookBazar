@@ -1,3 +1,4 @@
+import 'package:book_store/admin/admin_upload_items.dart';
 import 'package:book_store/user/fragements/dashboard_of_fragements.dart';
 import 'package:book_store/user/login_screen.dart';
 import 'package:book_store/user/sign_up.dart';
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         future: RememberUserPrefs.readUserInfo(),
         builder: (context, dataSnapShot) {
           if (dataSnapShot.data == null) {
-            return Login();
+            return AdminUploadItemsScreen();
           } else {
             return DashboardOfFragements();
           }
