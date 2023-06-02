@@ -664,3 +664,4 @@ class _AdminUploadItemsScreenState extends State<AdminUploadItemsScreen>
     return pickedImageXFile == null ? defaultScreen() : uploadItemFormScreen();
   }
 }
+
