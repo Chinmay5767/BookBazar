@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:book_store/user/items/item_detail_screen.dart';
+import 'package:book_store/user/items/search_items.dart';
 import 'package:book_store/user/model/Books.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -10,6 +11,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:http/http.dart' as http;
 
 import '../../api_connection/api_connection.dart';
+import '../cart/cart_list_screen.dart';
 
 class HomeFragementScreen extends StatelessWidget {
   TextEditingController searchController = TextEditingController();
@@ -122,7 +124,9 @@ class HomeFragementScreen extends StatelessWidget {
         controller: searchController,
         decoration: InputDecoration(
           prefixIcon: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Get.to(SearchItems(typedKeyWords: searchController.text));
+            },
             icon: const Icon(
               Icons.search,
               color: Colors.purpleAccent,
@@ -135,7 +139,7 @@ class HomeFragementScreen extends StatelessWidget {
           ),
           suffixIcon: IconButton(
             onPressed: () {
-              
+              Get.to( CartListScreen());
             },
             icon: const Icon(
               Icons.shopping_cart,
@@ -195,8 +199,8 @@ class HomeFragementScreen extends StatelessWidget {
                 Books eachBookItemData = dataSnapShot.data![index];
                 return GestureDetector(
                   onTap: () {
-                    Get.to(ItemsDetailScreen(itemInfo: eachBookItemData ));
-                  //  itemInfo defined in item_detail_screen
+                    Get.to(ItemDetailsScreen(itemInfo: eachBookItemData));
+                    //  itemInfo defined in item_detail_screen
                   },
                   child: Container(
                     width: 200,
@@ -358,11 +362,11 @@ class HomeFragementScreen extends StatelessWidget {
               physics: const NeverScrollableScrollPhysics(),
               scrollDirection: Axis.vertical,
               itemBuilder: (context, index) {
-                Books eachClothItemRecord = dataSnapShot.data![index];
+                Books eachBookItemRecord = dataSnapShot.data![index];
 
                 return GestureDetector(
                   onTap: () {
-                    Get.to(ItemsDetailScreen(itemInfo:eachClothItemRecord ));
+                    Get.to(ItemDetailsScreen(itemInfo: eachBookItemRecord));
                   },
                   child: Container(
                     margin: EdgeInsets.fromLTRB(
@@ -398,7 +402,7 @@ class HomeFragementScreen extends StatelessWidget {
                                     //name
                                     Expanded(
                                       child: Text(
-                                        eachClothItemRecord.name!,
+                                        eachBookItemRecord.name!,
                                         maxLines: 2,
                                         overflow: TextOverflow.ellipsis,
                                         style: const TextStyle(
@@ -415,8 +419,7 @@ class HomeFragementScreen extends StatelessWidget {
                                           left: 12, right: 12),
                                       child: Text(
                                         "\$ " +
-                                            eachClothItemRecord.price
-                                                .toString(),
+                                            eachBookItemRecord.price.toString(),
                                         maxLines: 2,
                                         overflow: TextOverflow.ellipsis,
                                         style: const TextStyle(
@@ -436,7 +439,7 @@ class HomeFragementScreen extends StatelessWidget {
                                 //tags
                                 Text(
                                   "Type: \n" +
-                                      eachClothItemRecord.type
+                                      eachBookItemRecord.type
                                           .toString()
                                           .replaceAll("[", "")
                                           .replaceAll("]", ""),
@@ -465,7 +468,7 @@ class HomeFragementScreen extends StatelessWidget {
                             placeholder:
                                 const AssetImage("images/place_holder.png"),
                             image: NetworkImage(
-                              eachClothItemRecord.image!,
+                              eachBookItemRecord.image!,
                             ),
                             imageErrorBuilder:
                                 (context, error, stackTraceError) {
