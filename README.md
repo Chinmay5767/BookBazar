@@ -20,6 +20,8 @@ did cd flutter  packages pub  cache repair
  4-> text in widget exceed it's size
  sol -> convert extra text to doted form by wrapping it into expanded abd then set maxLine, use overflow property of text widget
 
+ 5-> you have to send user_id which is int you have to convert ot into string to send it through api in json format
+
 - [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
