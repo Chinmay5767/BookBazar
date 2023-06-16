@@ -1,8 +1,10 @@
-import 'package:clothes_app/users/controllers/order_now_controller.dart';
-import 'package:clothes_app/users/order/order_confirmation.dart';
+
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
+
+import '../item_controller/order_now_controller.dart';
+import 'order_confirmation.dart';
 
 
 class OrderNowScreen extends StatelessWidget
@@ -12,8 +14,8 @@ class OrderNowScreen extends StatelessWidget
   final List<int>? selectedCartIDs;
 
   OrderNowController orderNowController = Get.put(OrderNowController());
-  List<String> deliverySystemNamesList = ["FedEx", "DHL", "United Parcel Service"];
-  List<String> paymentSystemNamesList = ["Apple Pay", "Wire Transfer", "Google Pay"];
+  List<String> deliverySystemNamesList = ["Danzo", "Amazon", "Flipkart"];
+  List<String> paymentSystemNamesList = ["Phone Pay", "Bharat Pay", "Google Pay"];
 
   TextEditingController phoneNumberController = TextEditingController();
   TextEditingController shipmentAddressController = TextEditingController();

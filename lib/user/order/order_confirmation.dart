@@ -1,17 +1,18 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
-import 'package:clothes_app/api_connection/api_connection.dart';
-import 'package:clothes_app/users/fragments/dashboard_of_fragments.dart';
-import 'package:clothes_app/users/fragments/home_fragment_screen.dart';
-import 'package:clothes_app/users/model/order.dart';
-import 'package:clothes_app/users/userPreferences/current_user.dart';
+
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart' as path;
 import 'package:http/http.dart' as http;
+
+import '../../api_connection/api_connection.dart';
+import '../fragements/dashboard_of_fragements.dart';
+import '../model/order.dart';
+import '../userPreferences/current_user.dart';
 
 class OrderConfirmationScreen extends StatelessWidget
 {
@@ -140,7 +141,7 @@ class OrderConfirmationScreen extends StatelessWidget
         {
           Fluttertoast.showToast(msg: "your new order has been placed Successfully.");
 
-          Get.to(DashboardOfFragments());
+          Get.to(DashboardOfFragements());
         }
       }
       else
