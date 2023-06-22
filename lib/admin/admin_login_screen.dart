@@ -82,7 +82,7 @@ class _AdminLoginState extends State<AdminLogin> {
                     width: MediaQuery.of(context).size.width,
                     height: 285,
                     child: Image.asset(
-                      "lib/assets/admin.jpeg",
+                      "lib/assets/admin.jpg",
                     ),
                   ),
 

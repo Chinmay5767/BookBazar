@@ -43,6 +43,8 @@ class API {
   // order
   static const addOrder= "$hostOrder/add.php";
   static const readOrder= "$hostOrder/read.php";
+  static const updateOrder= "$hostOrder/update_status.php";
+
 
 
 
