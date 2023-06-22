@@ -11,6 +11,7 @@ import 'package:http/http.dart' as http;
 
 import '../../api_connection/api_connection.dart';
 import '../fragements/dashboard_of_fragements.dart';
+
 import '../model/order.dart';
 import '../userPreferences/current_user.dart';
 
@@ -117,7 +118,7 @@ class OrderConfirmationScreen extends StatelessWidget
     }
     catch(erroeMsg)
     {
-      Fluttertoast.showToast(msg: "Error: " + erroeMsg.toString());
+      Fluttertoast.showToast(msg: "Error: " + erroeMsg.toString() + "save new item");
     }
   }
 
@@ -153,7 +154,7 @@ class OrderConfirmationScreen extends StatelessWidget
     {
       print("Error: " + errorMessage.toString());
 
-      Fluttertoast.showToast(msg: "Error: " + errorMessage.toString());
+      Fluttertoast.showToast(msg: "Error: " + errorMessage.toString() + "in delete function");
     }
   }
 
@@ -169,7 +170,7 @@ class OrderConfirmationScreen extends StatelessWidget
 
             //image
             Image.asset(
-              "images/transaction.png",
+              "lib/assets/transaction.jpg",
               width: 160,
             ),
 

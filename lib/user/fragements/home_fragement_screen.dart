@@ -92,7 +92,7 @@ class HomeFragementScreen extends StatelessWidget {
               ),
             ),
           ),
-          trendingMostPopularClothItemWidget(context),
+          trendingMostPopularBookItemWidget(context),
           const SizedBox(
             height: 24,
           ),
@@ -107,7 +107,9 @@ class HomeFragementScreen extends StatelessWidget {
                 fontSize: 24,
               ),
             ),
+           
           ),
+           allItemWidget(context),
         ],
       ),
     );
@@ -172,7 +174,7 @@ class HomeFragementScreen extends StatelessWidget {
 
   //
 
-  Widget trendingMostPopularClothItemWidget(context) {
+  Widget trendingMostPopularBookItemWidget(context) {
     return FutureBuilder(
       future: getTrendingBookItems(),
       builder: (context, AsyncSnapshot<List<Books>> dataSnapShot) {
@@ -234,7 +236,7 @@ class HomeFragementScreen extends StatelessWidget {
                             width: 200,
                             fit: BoxFit.cover,
                             placeholder:
-                                const AssetImage("images/place_holder.png"),
+                                const AssetImage( "lib/assets/place_holder.png",),
                             image: NetworkImage(
                               eachBookItemData.image!,
                             ),
@@ -466,7 +468,7 @@ class HomeFragementScreen extends StatelessWidget {
                             width: 130,
                             fit: BoxFit.cover,
                             placeholder:
-                                const AssetImage("images/place_holder.png"),
+                                const AssetImage( "lib/assets/place_holder.png",),
                             image: NetworkImage(
                               eachBookItemRecord.image!,
                             ),

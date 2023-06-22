@@ -395,7 +395,7 @@ class OrderNowScreen extends StatelessWidget
                   height: 150,
                   width: 130,
                   fit: BoxFit.cover,
-                  placeholder: const AssetImage("images/place_holder.png"),
+                  placeholder: const AssetImage( "lib/assets/place_holder.png",),
                   image: NetworkImage(
                     eachSelectedItem["image"],
                   ),
@@ -434,17 +434,7 @@ class OrderNowScreen extends StatelessWidget
 
                       const SizedBox(height: 16),
 
-                      //size + color
-                      Text(
-                        eachSelectedItem["size"].replaceAll("[", "").replaceAll("]", "") + "\n" + eachSelectedItem["color"].replaceAll("[", "").replaceAll("]", ""),
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
-                          color: Colors.white54,
-                        ),
-                      ),
-
-                      const SizedBox(height: 16),
+                  
 
                       //price
                       Text(

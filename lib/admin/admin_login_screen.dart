@@ -13,7 +13,6 @@ import 'package:get/get_state_manager/get_state_manager.dart';
 import '../api_connection/api_connection.dart';
 import '../user/model/user.dart';
 
-
 class AdminLogin extends StatefulWidget {
   // const Login({Key? key}) : super(key: key);
 
@@ -38,6 +37,8 @@ class _AdminLoginState extends State<AdminLogin> {
           'admin_password': passwordController.text.trim(),
         },
       );
+      print(res.statusCode);
+      print("iiiiiiiiiiiiiiiiii");
       if (res.statusCode ==
           200) //from flutter app the connection with api to server - success
       {
@@ -49,7 +50,7 @@ class _AdminLoginState extends State<AdminLogin> {
           // to recieve user data
           // see user.dart
           // it saves user information
-         
+
           Future.delayed(Duration(milliseconds: 2000), () {
             Get.to(AdminUploadItemsScreen());
           });
@@ -58,6 +59,7 @@ class _AdminLoginState extends State<AdminLogin> {
         }
       }
     } catch (e) {
+      Fluttertoast.showToast(msg:e.toString());
       print(e.toString());
     }
   }
@@ -284,10 +286,7 @@ class _AdminLoginState extends State<AdminLogin> {
                               ],
                             ),
 
-                           
-
                             //are you an admin - button
-                       
                           ],
                         ),
                       ),

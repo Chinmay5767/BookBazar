@@ -1,6 +1,6 @@
 
 import 'package:book_store/user/fragements/home_fragement_screen.dart';
-import 'package:book_store/user/fragements/order_fragement_screen.dart';
+
 import 'package:book_store/user/fragements/profile_fragement_screen.dart';
 import 'package:book_store/user/userPreferences/current_user.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +9,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 import 'favorites_fragment_screen.dart';
+import 'order_fragment_screen.dart';
 
 
 class DashboardOfFragements extends StatelessWidget
@@ -48,6 +49,8 @@ class DashboardOfFragements extends StatelessWidget
   ];
 
   RxInt _indexNumber = 0.obs;
+
+  DashboardOfFragements({super.key});
 
   @override
   Widget build(BuildContext context)

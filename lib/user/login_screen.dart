@@ -51,7 +51,7 @@ class _LoginState extends State<Login> {
           User userInfo = User.fromJson(resBodyOflogin['userData']);
           await RememberUserPrefs.StoreUserInfo(userInfo);
           Future.delayed(Duration(milliseconds: 2000), () {
-            Get.to(DashboardOfFragements);
+            Get.to(DashboardOfFragements());
           });
         } else {
           Fluttertoast.showToast(msg: "Please type correct password or email");

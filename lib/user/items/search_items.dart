@@ -270,7 +270,7 @@ class _SearchItemsState extends State<SearchItems>
 
                                 //tags
                                 Text(
-                                  "Tags: \n" + eachBookItemRecord.type.toString().replaceAll("[", "").replaceAll("]", ""),
+                                  "book type: \n" + eachBookItemRecord.type.toString().replaceAll("[", "").replaceAll("]", ""),
                                   maxLines: 2,
                                   overflow: TextOverflow.ellipsis,
                                   style: const TextStyle(
@@ -294,7 +294,7 @@ class _SearchItemsState extends State<SearchItems>
                             height: 130,
                             width: 130,
                             fit: BoxFit.cover,
-                            placeholder: const AssetImage("images/place_holder.png"),
+                            placeholder: const AssetImage( "lib/assets/place_holder.png",),
                             image: NetworkImage(
                               eachBookItemRecord.image!,
                             ),

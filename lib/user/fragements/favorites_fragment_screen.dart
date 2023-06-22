@@ -34,7 +34,7 @@ class FavoritesFragmentScreen extends StatelessWidget {
           });
         }
       } else {
-        Fluttertoast.showToast(msg: "Status Code is not 200");
+        Fluttertoast.showToast(msg: "Status Code is not 200 in favoriteListOfCurrentUser ");
       }
     } catch (errorMsg) {
       Fluttertoast.showToast(msg: "Error:: " + errorMsg.toString());
@@ -198,7 +198,7 @@ class FavoritesFragmentScreen extends StatelessWidget {
 
                                 //tags
                                 Text(
-                                  "Tags: \n" +
+                                  "book type: \n" +
                                       eachFavoriteItemRecord.type
                                           .toString()
                                           .replaceAll("[", "")
@@ -226,7 +226,7 @@ class FavoritesFragmentScreen extends StatelessWidget {
                             width: 130,
                             fit: BoxFit.cover,
                             placeholder:
-                                const AssetImage("images/place_holder.png"),
+                                const AssetImage( "lib/assets/place_holder.png",),
                             image: NetworkImage(
                               eachFavoriteItemRecord.image!,
                             ),

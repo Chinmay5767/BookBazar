@@ -1,5 +1,5 @@
 class API {
-  static const hostConnection = "http://192.168.93.75/api_book_store";
+  static const hostConnection = "https://bookbazar9898.000webhostapp.com";
   // the address v4 config of lan adapter wifi 2
   // type ipconfig
   //
@@ -10,14 +10,16 @@ class API {
    static const hostCart = "$hostConnection/cart";
    static const hostFavorite = "$hostConnection/favorite";
    static const hostOrder = "$hostConnection/order";
+   static const hostImage = "$hostConnection/transactions_proof_images/";
 
    // sign up
-   static const validateEmail = "http://192.168.93.75/api_book_store/user/validate_email.php";
+   static const validateEmail = "$hostConnection/user/validate_email.php";
    static const signUp = "$hostConnection/user/signup.php";
    static const login = "$hostConnection/user/login.php";
 
    //admin
    static const adminLogin = "$hostConnection/admin/login.php";
+   static const AdminGetAllOrders = "$hostConnection/admin/read_orders.php";
    //search item
    static const searchItems = "$hostUploadItem/search.php";
 

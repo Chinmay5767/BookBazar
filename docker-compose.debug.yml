@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  bookstore:
+    image: bookstore
+    build:
+      context: .
+      dockerfile: ./Dockerfile

@@ -31,9 +31,9 @@ class Favorite
     item_id: int.parse(json['item_id']),
     name: json['name'],
     rating: double.parse(json['rating']),
-    type: json['tags'].toString().split(', '),
+    type: json['type'].toString().split(', '),
     price: double.parse(json['price']),
-    author:  json['author'],
+    author: json['author'],
    
     description: json['description'],
     image: json['image'],

@@ -58,7 +58,8 @@ class _CartListScreenState extends State<CartListScreen> {
 
     if (cartListController.selectedItemList.length > 0) {
       cartListController.cartList.forEach((itemInCart) {
-        if (cartListController.selectedItemList.contains(itemInCart.item_id)) {
+        if (cartListController.selectedItemList.contains(itemInCart.cart_id)) {
+          
           double eachItemTotalAmount = (itemInCart.price!) *
               (double.parse(itemInCart.quantity.toString()));
 
@@ -449,7 +450,9 @@ class _CartListScreenState extends State<CartListScreen> {
                                       width: 150,
                                       fit: BoxFit.cover,
                                       placeholder: const AssetImage(
-                                          "images/place_holder.png"),
+                                         
+                                          "lib/assets/place_holder.png",
+                                          ),
                                       image: NetworkImage(
                                         cartModel.image!,
                                       ),

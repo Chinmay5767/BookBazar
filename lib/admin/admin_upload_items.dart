@@ -233,7 +233,7 @@ class _AdminUploadItemsScreenState extends State<AdminUploadItemsScreen>
           'item_id': '1',
           'name': nameController.text.trim().toString(),
           'rating': ratingController.text.trim().toString(),
-          'tags': typeList.toString(),
+          'type': typeList.toString(),
           'price': priceController.text.trim().toString(),
           'author': authorController.text.trim().toString(),
          
@@ -472,10 +472,10 @@ class _AdminUploadItemsScreenState extends State<AdminUploadItemsScreen>
 
                           const SizedBox(height: 18,),
 
-                          //item tags
+                          //item type
                           TextFormField(
                             controller: typeController,
-                            validator: (val) => val == "" ? "Please write item tags" : null,
+                            validator: (val) => val == "" ? "Please write book type" : null,
                             decoration: InputDecoration(
                               prefixIcon: const Icon(
                                 Icons.tag,
@@ -562,16 +562,17 @@ class _AdminUploadItemsScreenState extends State<AdminUploadItemsScreen>
 
                           const SizedBox(height: 18,),
 
-                          //item sizes
-                          TextFormField(
+                          //item description
+                       
+                            TextFormField(
                             controller: authorController,
-                            validator: (val) => val == "" ? "Please write item sizes" : null,
+                            validator: (val) => val == "" ? "Please give item author" : null,
                             decoration: InputDecoration(
                               prefixIcon: const Icon(
-                                Icons.picture_in_picture,
+                                Icons.rate_review,
                                 color: Colors.black,
                               ),
-                              hintText: "item size...",
+                              hintText: "item author...",
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(30),
                                 borderSide: const BorderSide(
@@ -604,10 +605,50 @@ class _AdminUploadItemsScreenState extends State<AdminUploadItemsScreen>
                               filled: true,
                             ),
                           ),
-
+                         
+                           const SizedBox(height: 18,),
+                             TextFormField(
+                            controller: descriptionController,
+                            validator: (val) => val == "" ? "Please give item description" : null,
+                            decoration: InputDecoration(
+                              prefixIcon: const Icon(
+                                Icons.rate_review,
+                                color: Colors.black,
+                              ),
+                              hintText: "item description...",
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide: const BorderSide(
+                                  color: Colors.white60,
+                                ),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide: const BorderSide(
+                                  color: Colors.white60,
+                                ),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide: const BorderSide(
+                                  color: Colors.white60,
+                                ),
+                              ),
+                              disabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide: const BorderSide(
+                                  color: Colors.white60,
+                                ),
+                              ),
+                              contentPadding: const EdgeInsets.symmetric(
+                                horizontal: 14,
+                                vertical: 6,
+                              ),
+                              fillColor: Colors.white,
+                              filled: true,
+                            ),
+                          ),
                           const SizedBox(height: 18,),
-
-                        
 
                           //button
                           Material(

@@ -22,6 +22,8 @@ did cd flutter  packages pub  cache repair
 
  5-> you have to send user_id which is int you have to convert ot into string to send it through api in json format
 
+ 6-> date format intl dependency
+
 - [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 

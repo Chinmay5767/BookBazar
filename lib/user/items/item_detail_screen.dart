@@ -50,7 +50,7 @@ class _ItemDetailsScreenState extends State<ItemDetailsScreen> {
               msg: "Error Occur. Item not saved to Cart and Try Again.");
         }
       } else {
-        Fluttertoast.showToast(msg: "Status is not 200");
+        Fluttertoast.showToast(msg: "Status is not 200 in addItemToCart");
       }
     } catch (errorMsg) {
       print("Error :: " + errorMsg.toString());
@@ -72,14 +72,13 @@ class _ItemDetailsScreenState extends State<ItemDetailsScreen> {
       {
         var resBodyOfFavorite = jsonDecode(res.body);
         if (resBodyOfFavorite['favoriteFound'] == true) {
-         
           itemDetailsController.setIsFavourite(true);
         } else {
-         
-              itemDetailsController.setIsFavourite(false);
+          itemDetailsController.setIsFavourite(false);
         }
       } else {
-        Fluttertoast.showToast(msg: "Status is not 200");
+        Fluttertoast.showToast(
+            msg: "Status is not 200 in ValidateFavoriteList");
       }
     } catch (e) {
       print("Error :: " + e.toString());
@@ -109,7 +108,8 @@ class _ItemDetailsScreenState extends State<ItemDetailsScreen> {
               msg: "Error Occur. Item not saved to favorite list");
         }
       } else {
-        Fluttertoast.showToast(msg: "Status is not 200");
+        Fluttertoast.showToast(
+            msg: "Status is not 200 in addItemToFavoriteList");
       }
     } catch (errorMsg) {
       print("Error :: " + errorMsg.toString());
@@ -139,7 +139,8 @@ class _ItemDetailsScreenState extends State<ItemDetailsScreen> {
               msg: "Error Occur. Item not deleted from favorite list");
         }
       } else {
-        Fluttertoast.showToast(msg: "Status is not 200");
+        Fluttertoast.showToast(
+            msg: "Status is not 200 in deleteItemFromFavoriteList");
       }
     } catch (errorMsg) {
       print("Error :: " + errorMsg.toString());
@@ -163,7 +164,9 @@ class _ItemDetailsScreenState extends State<ItemDetailsScreen> {
             height: MediaQuery.of(context).size.height * 0.5,
             width: MediaQuery.of(context).size.width,
             fit: BoxFit.cover,
-            placeholder: const AssetImage("images/place_holder.png"),
+            placeholder: const AssetImage(
+              "lib/assets/place_holder.png",
+            ),
             image: NetworkImage(
               widget.itemInfo!.image!,
             ),
@@ -204,7 +207,17 @@ class _ItemDetailsScreenState extends State<ItemDetailsScreen> {
                   // favorite
                   Obx(
                     () => IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        if (itemDetailsController.isFavouriteItem == true) {
+                          //delete item from favorites
+                          deleteItemFromFavoriteList();
+                        
+                        } else {
+                          //save item to user favorites
+                          addItemToFavoriteList();
+                         
+                        }
+                      },
                       icon: Icon(
                         itemDetailsController.isFavouriteItem
                             ? Icons.bookmark
@@ -426,7 +439,13 @@ class _ItemDetailsScreenState extends State<ItemDetailsScreen> {
             ),
             const SizedBox(height: 8),
             // author show here
-
+            Text(
+              widget.itemInfo!.author!,
+              textAlign: TextAlign.justify,
+              style: const TextStyle(
+                color: Colors.grey,
+              ),
+            ),
             //description
             const Text(
               "Description:",
