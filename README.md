@@ -24,6 +24,8 @@ did cd flutter  packages pub  cache repair
 
  6-> date format intl dependency
 
+ 7-> deploying project -> https://medium.com/flutter/must-try-use-firebase-to-host-your-flutter-app-on-the-web-852ee533a469
+
 - [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 

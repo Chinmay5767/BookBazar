@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "357418638651",
+    "project_id": "bookbazar-e7ea7",
+    "storage_bucket": "bookbazar-e7ea7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357418638651:android:6d29ce6a96510c23ce6b1e",
+        "android_client_info": {
+          "package_name": "com.chinmayBeedkar.BookBazar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "357418638651-cjvvksebei1ghvhgu2a8sjljj7ho66lk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEtSU11ytiVZISvIy8pxM9lqYpax-XwXI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "357418638651-cjvvksebei1ghvhgu2a8sjljj7ho66lk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
